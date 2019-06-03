@@ -1,15 +1,14 @@
 <!--
 ---
-name: Diablo
-class: Motor Controller
-type: other
+name: Diablo V2
+class: board
+type: Motor
 formfactor: Custom
 manufacturer: PiBorg
 description: An add-on board for the Raspberry Pi
-url: https://my-addon-board.com
-github: https://github.com/my-addon-board-repo.com
-schematic: https://my-addon-board-schematic.com
-buy: http://buy-my-addon-board.com
+url: https://www.piborg.org/diablo
+github: https://github.com/piborg/diablo
+buy: http://www.piborg.org/diablo
 image: 'piborg-diablo.png'
 pincount: 6
 eeprom: no
@@ -25,29 +24,18 @@ pin:
   '5':
     mode: i2c
 -->
-# Diablo
+#Diablo V2
 
-Use this section to provide additional information such as features, technical parts, install requirements, etc. Please keep this section to the point and avoid copy/paste of marketing blurb - the board's extended description should be primarily neutral and technical.
+The Diablo V2 dual H-bridge motor controller from PiBorg is capable of running large motors and steppers up to 55A per channel from power sources from 7V to 36V. Speed control comes from PWM and the boards are individually addressable via I2C allowing for other I2C boards to be used on other addresses.
 
-The overlay itself uses the following fields, some of which are mandatory, as noted below:
-
-MANDATORY
-* name: the board name as it will appear at pinout.xyz
-* class: the class the overlay falls in, 'board' is the most common (use that if in doubt).
-* type: the typical applications of the board, i.e 'lcd' (use 'other' if in doubt). If multiple types apply, use a comma separated list (for example, 'adc,motor'). The keywords submitted will be used to filter boards on the site so don't include anything but tags that are relevant to the key functionality of the board.
-* formfactor: the board's form factor. Valid values are Custom, HAT and pHAT. Note that an EEPROM is required for HAT specs, use Custom if that is not the case.
-* manufacturer: the manufacturer's name.
-* description: a description of what the add-on board provides.
-* url: the main URL for the product providing detailed technical information about the board.
-* pin: an array of the pins used. Do not specify power or EEPROM pins as part of the array!
-
-DESIRABLE
-* pincount: the header pin count, typically 26 or 40 but shims/custom boards are acceptable.
-* eeprom: whether the board includes an eeprom (required by 'HAT' specs!).
-* power: the supply logic required by the board. Valid values are 'external', '3v3', '5v' and '3v3,5v'.
-* i2c: if the board uses i2c, a list of the bus address(es) and device(s) identification.
-
-OPTIONAL
-* image: a top-down image of the board as png with transparency or appropriate placeholder (see image template in board directory).
-* github: github repository address.
-* buy: URL where the board can be purchased.
+##Features
+- On-board 5V regulator powers the Raspberry Pi
+- Runs from any battery pack or power supply from 7V to 36V
+- Proper 55A output per motor connection
+- Speed control forwards and reverse via PWM
+- Controls 2x DC Motors or 4, 5 or 6 wire stepper motors
+- Uses I2C SCK/SDA and 3.3V/GND pins for communications allowing interfacing to the Raspberry Pi, Arduino, Beagle Bone, Microchip pic and many others.
+- Stackable! Plug in more boards to control up to 200 motors!
+- Overheat protection, under voltage lockout, and short circuit protection.
+- Diablo code library available on [GitHub](https://www.github.com/piborg/diablo).
+- Worked hardware and software examples available on the [PiBorg blog](https://www.piborg.org/blog/build/diablo-build).
